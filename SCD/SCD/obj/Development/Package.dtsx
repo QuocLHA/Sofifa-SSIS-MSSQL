@@ -1,0 +1,2866 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/5/2022 10:25:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="QUOC"
+  DTS:CreatorName="QUOC\lehoa"
+  DTS:DTSID="{5845FAA3-29A7-4F05-84CB-D1645A4D4809}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{87A31462-212C-45BA-B91B-5909A0B5E958}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{79CECAC1-2240-4FA8-B2CE-96DE6D426B2D}"
+      DTS:ObjectName="QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=QUOC\SQLEXPRESS;User ID=sqlUser;Initial Catalog=DEP305x_OriginalData;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA129++ijoXk+zHDJL+ej46gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABexpyo+k+2UhhdJ3cupjjOKcYUJnoxIljejFyY0/DDWQAAAAAOgAAAAAIAACAAAAAKSMa4bZ+8/TGCgRM70XsbBg9PsvEOZj5WmdeAY4LYUyAAAADvmOrACpjJ43zTo7ZJsfIrfbV5KWIQzqlIMElNG0GwA0AAAABZ/OBbUiS8XJ4S7txqYh7KEayPiXnwsGlG9Mid23NwlVYT9rnLeANr/4XsrJrL7LDuh4lTopLjKE3MR9SW8YXl</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{17ab01f7-534e-419a-91fb-170b7c1436d1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Insert Destination 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SCD_Cleaned_database]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Insert Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[sofifa_id]"
+                      cachedDataType="i4"
+                      cachedName="sofifa_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[sofifa_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sofifa_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[long_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="long_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[long_name]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[long_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[short_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="short_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[short_name]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[short_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[photo_url]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="photo_url"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[photo_url]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[photo_url]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[positions]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="positions"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[positions]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[positions]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[age]"
+                      cachedDataType="i4"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[age]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[dob]"
+                      cachedDataType="dbDate"
+                      cachedName="dob"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[dob]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[height_cm]"
+                      cachedDataType="i4"
+                      cachedName="height_cm"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[height_cm]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[height_cm]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[weight_kg]"
+                      cachedDataType="i4"
+                      cachedName="weight_kg"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weight_kg]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weight_kg]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[overall_rating]"
+                      cachedDataType="i4"
+                      cachedName="overall_rating"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[overall_rating]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overall_rating]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[potential_rating]"
+                      cachedDataType="i4"
+                      cachedName="potential_rating"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[potential_rating]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[potential_rating]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[value_euro]"
+                      cachedDataType="i4"
+                      cachedName="value_euro"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[value_euro]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[value_euro]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[wage_euro]"
+                      cachedDataType="i4"
+                      cachedName="wage_euro"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wage_euro]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[wage_euro]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[preferred_foot]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="preferred_foot"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[preferred_foot]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[preferred_foot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[weak_foot]"
+                      cachedDataType="i4"
+                      cachedName="weak_foot"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weak_foot]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weak_foot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[skill_moves]"
+                      cachedDataType="i4"
+                      cachedName="skill_moves"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_moves]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_moves]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[international_reputation]"
+                      cachedDataType="i4"
+                      cachedName="international_reputation"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[international_reputation]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[international_reputation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[work_rate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="work_rate"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[work_rate]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_rate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[body_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="body_type"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[body_type]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[body_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[real_face]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="real_face"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[real_face]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[real_face]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[release_clause_euro]"
+                      cachedDataType="i4"
+                      cachedName="release_clause_euro"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[release_clause_euro]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[release_clause_euro]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[club]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="club"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[club]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[club]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[club_overall]"
+                      cachedDataType="i4"
+                      cachedName="club_overall"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[club_overall]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[club_overall]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[national]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="national"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[national]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[national]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[attack_crossing]"
+                      cachedDataType="i4"
+                      cachedName="attack_crossing"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_crossing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_crossing]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[attack_finishing]"
+                      cachedDataType="i4"
+                      cachedName="attack_finishing"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_finishing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_finishing]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[attack_heading_accuracy]"
+                      cachedDataType="i4"
+                      cachedName="attack_heading_accuracy"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_heading_accuracy]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_heading_accuracy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[attack_short_passing]"
+                      cachedDataType="i4"
+                      cachedName="attack_short_passing"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_short_passing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_short_passing]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[attack_volley]"
+                      cachedDataType="i4"
+                      cachedName="attack_volley"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_volley]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_volley]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[skill_dribbling]"
+                      cachedDataType="i4"
+                      cachedName="skill_dribbling"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_dribbling]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_dribbling]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[skill_curve]"
+                      cachedDataType="i4"
+                      cachedName="skill_curve"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_curve]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_curve]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[skill_fk_accuracy]"
+                      cachedDataType="i4"
+                      cachedName="skill_fk_accuracy"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_fk_accuracy]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_fk_accuracy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[skill_long_passing]"
+                      cachedDataType="i4"
+                      cachedName="skill_long_passing"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_long_passing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_long_passing]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[skill_ball_control]"
+                      cachedDataType="i4"
+                      cachedName="skill_ball_control"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_ball_control]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_ball_control]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[movement_acceleration]"
+                      cachedDataType="i4"
+                      cachedName="movement_acceleration"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_acceleration]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_acceleration]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[movement_sprint_speed]"
+                      cachedDataType="i4"
+                      cachedName="movement_sprint_speed"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_sprint_speed]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_sprint_speed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[movement_agility]"
+                      cachedDataType="i4"
+                      cachedName="movement_agility"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_agility]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_agility]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[movement_reaction]"
+                      cachedDataType="i4"
+                      cachedName="movement_reaction"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_reaction]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_reaction]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[movement_balance]"
+                      cachedDataType="i4"
+                      cachedName="movement_balance"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_balance]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_balance]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[power_shot]"
+                      cachedDataType="i4"
+                      cachedName="power_shot"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_shot]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_shot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[power_jumping]"
+                      cachedDataType="i4"
+                      cachedName="power_jumping"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_jumping]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_jumping]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[power_stamina]"
+                      cachedDataType="i4"
+                      cachedName="power_stamina"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_stamina]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_stamina]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[power_strength]"
+                      cachedDataType="i4"
+                      cachedName="power_strength"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_strength]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_strength]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[power_long_shot]"
+                      cachedDataType="i4"
+                      cachedName="power_long_shot"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_long_shot]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_long_shot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[mentality_aggression]"
+                      cachedDataType="i4"
+                      cachedName="mentality_aggression"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_aggression]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_aggression]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[mentality_interception]"
+                      cachedDataType="i4"
+                      cachedName="mentality_interception"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_interception]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_interception]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[mentality_positioning]"
+                      cachedDataType="i4"
+                      cachedName="mentality_positioning"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_positioning]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_positioning]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[mentality_vision]"
+                      cachedDataType="i4"
+                      cachedName="mentality_vision"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_vision]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_vision]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[mentality_penalty]"
+                      cachedDataType="i4"
+                      cachedName="mentality_penalty"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_penalty]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_penalty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[mentality_composure]"
+                      cachedDataType="i4"
+                      cachedName="mentality_composure"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_composure]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_composure]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[defensive_awareness]"
+                      cachedDataType="i4"
+                      cachedName="defensive_awareness"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[defensive_awareness]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_awareness]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[defensive_standing_tackle]"
+                      cachedDataType="i4"
+                      cachedName="defensive_standing_tackle"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[defensive_standing_tackle]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_standing_tackle]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[defensive_sliding_tackle]"
+                      cachedDataType="i4"
+                      cachedName="defensive_sliding_tackle"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[defensive_sliding_tackle]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_sliding_tackle]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[goalkeeping_diving]"
+                      cachedDataType="i4"
+                      cachedName="goalkeeping_diving"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_diving]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_diving]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[goalkeeping_handling]"
+                      cachedDataType="i4"
+                      cachedName="goalkeeping_handling"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_handling]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_handling]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[goalkeeping_composure]"
+                      cachedDataType="i4"
+                      cachedName="goalkeeping_composure"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_composure]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_composure]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[goalkeeping_kicking]"
+                      cachedDataType="i4"
+                      cachedName="goalkeeping_kicking"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_kicking]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_kicking]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[goalkeeping_positioning]"
+                      cachedDataType="i4"
+                      cachedName="goalkeeping_positioning"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_positioning]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_positioning]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[player_traits]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="player_traits"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[player_traits]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[player_traits]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[player_hashtags]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="player_hashtags"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[player_hashtags]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[player_hashtags]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[sofifa_id]"
+                      dataType="i4"
+                      name="sofifa_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[long_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="long_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[short_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="short_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[photo_url]"
+                      dataType="wstr"
+                      length="50"
+                      name="photo_url" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[positions]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="positions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      dataType="i4"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      dataType="dbDate"
+                      name="dob" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[height_cm]"
+                      dataType="i4"
+                      name="height_cm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weight_kg]"
+                      dataType="i4"
+                      name="weight_kg" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[overall_rating]"
+                      dataType="i4"
+                      name="overall_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[potential_rating]"
+                      dataType="i4"
+                      name="potential_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[value_euro]"
+                      dataType="i4"
+                      name="value_euro" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wage_euro]"
+                      dataType="i4"
+                      name="wage_euro" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[preferred_foot]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="preferred_foot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weak_foot]"
+                      dataType="i4"
+                      name="weak_foot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_moves]"
+                      dataType="i4"
+                      name="skill_moves" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[international_reputation]"
+                      dataType="i4"
+                      name="international_reputation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[work_rate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="work_rate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[body_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="body_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[real_face]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="real_face" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[release_clause_euro]"
+                      dataType="i4"
+                      name="release_clause_euro" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[club]"
+                      dataType="wstr"
+                      length="50"
+                      name="club" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[club_overall]"
+                      dataType="i4"
+                      name="club_overall" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[national]"
+                      dataType="wstr"
+                      length="50"
+                      name="national" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_crossing]"
+                      dataType="i4"
+                      name="attack_crossing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_finishing]"
+                      dataType="i4"
+                      name="attack_finishing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_heading_accuracy]"
+                      dataType="i4"
+                      name="attack_heading_accuracy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_short_passing]"
+                      dataType="i4"
+                      name="attack_short_passing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[attack_volley]"
+                      dataType="i4"
+                      name="attack_volley" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_dribbling]"
+                      dataType="i4"
+                      name="skill_dribbling" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_curve]"
+                      dataType="i4"
+                      name="skill_curve" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_fk_accuracy]"
+                      dataType="i4"
+                      name="skill_fk_accuracy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_long_passing]"
+                      dataType="i4"
+                      name="skill_long_passing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[skill_ball_control]"
+                      dataType="i4"
+                      name="skill_ball_control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_acceleration]"
+                      dataType="i4"
+                      name="movement_acceleration" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_sprint_speed]"
+                      dataType="i4"
+                      name="movement_sprint_speed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_agility]"
+                      dataType="i4"
+                      name="movement_agility" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_reaction]"
+                      dataType="i4"
+                      name="movement_reaction" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[movement_balance]"
+                      dataType="i4"
+                      name="movement_balance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_shot]"
+                      dataType="i4"
+                      name="power_shot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_jumping]"
+                      dataType="i4"
+                      name="power_jumping" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_stamina]"
+                      dataType="i4"
+                      name="power_stamina" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_strength]"
+                      dataType="i4"
+                      name="power_strength" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[power_long_shot]"
+                      dataType="i4"
+                      name="power_long_shot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_aggression]"
+                      dataType="i4"
+                      name="mentality_aggression" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_interception]"
+                      dataType="i4"
+                      name="mentality_interception" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_positioning]"
+                      dataType="i4"
+                      name="mentality_positioning" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_vision]"
+                      dataType="i4"
+                      name="mentality_vision" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_penalty]"
+                      dataType="i4"
+                      name="mentality_penalty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[mentality_composure]"
+                      dataType="i4"
+                      name="mentality_composure" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[defensive_awareness]"
+                      dataType="i4"
+                      name="defensive_awareness" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[defensive_standing_tackle]"
+                      dataType="i4"
+                      name="defensive_standing_tackle" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[defensive_sliding_tackle]"
+                      dataType="i4"
+                      name="defensive_sliding_tackle" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_diving]"
+                      dataType="i4"
+                      name="goalkeeping_diving" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_handling]"
+                      dataType="i4"
+                      name="goalkeeping_handling" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_composure]"
+                      dataType="i4"
+                      name="goalkeeping_composure" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_kicking]"
+                      dataType="i4"
+                      name="goalkeeping_kicking" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[goalkeeping_positioning]"
+                      dataType="i4"
+                      name="goalkeeping_positioning" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[player_traits]"
+                      dataType="wstr"
+                      length="150"
+                      name="player_traits" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[player_hashtags]"
+                      dataType="wstr"
+                      length="100"
+                      name="player_hashtags" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Insert Destination 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[SCD_Cleaned_database] SET [overall_rating] = ? WHERE [sofifa_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[overall_rating]"
+                      cachedDataType="i4"
+                      cachedName="overall_rating"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overall_rating]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[sofifa_id]"
+                      cachedDataType="i4"
+                      cachedName="sofifa_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sofifa_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Cleaned_database]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sofifa_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sofifa_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sofifa_id]"
+                      name="sofifa_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[long_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[long_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[long_name]"
+                      name="long_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[short_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[short_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[short_name]"
+                      name="short_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[photo_url]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[photo_url]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[photo_url]"
+                      name="photo_url"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[positions]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[positions]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[positions]"
+                      name="positions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[age]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[age]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[dob]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dob]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[dob]"
+                      name="dob"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[height_cm]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[height_cm]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[height_cm]"
+                      name="height_cm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weight_kg]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weight_kg]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weight_kg]"
+                      name="weight_kg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overall_rating]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[overall_rating]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overall_rating]"
+                      name="overall_rating"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[potential_rating]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[potential_rating]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[potential_rating]"
+                      name="potential_rating"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[value_euro]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[value_euro]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[value_euro]"
+                      name="value_euro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[wage_euro]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wage_euro]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[wage_euro]"
+                      name="wage_euro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[preferred_foot]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[preferred_foot]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[preferred_foot]"
+                      name="preferred_foot"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weak_foot]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weak_foot]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weak_foot]"
+                      name="weak_foot"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_moves]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_moves]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_moves]"
+                      name="skill_moves"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[international_reputation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[international_reputation]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[international_reputation]"
+                      name="international_reputation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_rate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[work_rate]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_rate]"
+                      name="work_rate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[body_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[body_type]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[body_type]"
+                      name="body_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[real_face]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[real_face]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[real_face]"
+                      name="real_face"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[release_clause_euro]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[release_clause_euro]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[release_clause_euro]"
+                      name="release_clause_euro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[club]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[club]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[club]"
+                      name="club"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[club_overall]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[club_overall]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[club_overall]"
+                      name="club_overall"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[national]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[national]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[national]"
+                      name="national"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_crossing]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_crossing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_crossing]"
+                      name="attack_crossing"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_finishing]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_finishing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_finishing]"
+                      name="attack_finishing"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_heading_accuracy]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_heading_accuracy]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_heading_accuracy]"
+                      name="attack_heading_accuracy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_short_passing]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_short_passing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_short_passing]"
+                      name="attack_short_passing"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_volley]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_volley]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_volley]"
+                      name="attack_volley"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_dribbling]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_dribbling]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_dribbling]"
+                      name="skill_dribbling"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_curve]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_curve]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_curve]"
+                      name="skill_curve"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_fk_accuracy]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_fk_accuracy]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_fk_accuracy]"
+                      name="skill_fk_accuracy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_long_passing]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_long_passing]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_long_passing]"
+                      name="skill_long_passing"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_ball_control]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_ball_control]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_ball_control]"
+                      name="skill_ball_control"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_acceleration]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_acceleration]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_acceleration]"
+                      name="movement_acceleration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_sprint_speed]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_sprint_speed]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_sprint_speed]"
+                      name="movement_sprint_speed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_agility]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_agility]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_agility]"
+                      name="movement_agility"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_reaction]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_reaction]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_reaction]"
+                      name="movement_reaction"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_balance]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_balance]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_balance]"
+                      name="movement_balance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_shot]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_shot]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_shot]"
+                      name="power_shot"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_jumping]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_jumping]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_jumping]"
+                      name="power_jumping"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_stamina]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_stamina]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_stamina]"
+                      name="power_stamina"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_strength]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_strength]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_strength]"
+                      name="power_strength"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_long_shot]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_long_shot]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[power_long_shot]"
+                      name="power_long_shot"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_aggression]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_aggression]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_aggression]"
+                      name="mentality_aggression"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_interception]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_interception]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_interception]"
+                      name="mentality_interception"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_positioning]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_positioning]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_positioning]"
+                      name="mentality_positioning"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_vision]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_vision]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_vision]"
+                      name="mentality_vision"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_penalty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_penalty]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_penalty]"
+                      name="mentality_penalty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_composure]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_composure]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_composure]"
+                      name="mentality_composure"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_awareness]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[defensive_awareness]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_awareness]"
+                      name="defensive_awareness"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_standing_tackle]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[defensive_standing_tackle]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_standing_tackle]"
+                      name="defensive_standing_tackle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_sliding_tackle]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[defensive_sliding_tackle]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_sliding_tackle]"
+                      name="defensive_sliding_tackle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_diving]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_diving]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_diving]"
+                      name="goalkeeping_diving"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_handling]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_handling]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_handling]"
+                      name="goalkeeping_handling"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_composure]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_composure]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_composure]"
+                      name="goalkeeping_composure"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_kicking]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_kicking]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_kicking]"
+                      name="goalkeeping_kicking"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_positioning]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_positioning]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_positioning]"
+                      name="goalkeeping_positioning"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[player_traits]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[player_traits]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[player_traits]"
+                      name="player_traits"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[player_hashtags]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[player_hashtags]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[player_hashtags]"
+                      name="player_hashtags"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sofifa_id]"
+                      dataType="i4"
+                      name="sofifa_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[long_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="long_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[short_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="short_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[photo_url]"
+                      dataType="wstr"
+                      length="50"
+                      name="photo_url" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[positions]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="positions" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[age]"
+                      dataType="i4"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dob]"
+                      dataType="dbDate"
+                      name="dob" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[height_cm]"
+                      dataType="i4"
+                      name="height_cm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weight_kg]"
+                      dataType="i4"
+                      name="weight_kg" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[overall_rating]"
+                      dataType="i4"
+                      name="overall_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[potential_rating]"
+                      dataType="i4"
+                      name="potential_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[value_euro]"
+                      dataType="i4"
+                      name="value_euro" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wage_euro]"
+                      dataType="i4"
+                      name="wage_euro" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[preferred_foot]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="preferred_foot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weak_foot]"
+                      dataType="i4"
+                      name="weak_foot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_moves]"
+                      dataType="i4"
+                      name="skill_moves" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[international_reputation]"
+                      dataType="i4"
+                      name="international_reputation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[work_rate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="work_rate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[body_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="body_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[real_face]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="real_face" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[release_clause_euro]"
+                      dataType="i4"
+                      name="release_clause_euro" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[club]"
+                      dataType="wstr"
+                      length="50"
+                      name="club" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[club_overall]"
+                      dataType="i4"
+                      name="club_overall" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[national]"
+                      dataType="wstr"
+                      length="50"
+                      name="national" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_crossing]"
+                      dataType="i4"
+                      name="attack_crossing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_finishing]"
+                      dataType="i4"
+                      name="attack_finishing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_heading_accuracy]"
+                      dataType="i4"
+                      name="attack_heading_accuracy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_short_passing]"
+                      dataType="i4"
+                      name="attack_short_passing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attack_volley]"
+                      dataType="i4"
+                      name="attack_volley" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_dribbling]"
+                      dataType="i4"
+                      name="skill_dribbling" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_curve]"
+                      dataType="i4"
+                      name="skill_curve" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_fk_accuracy]"
+                      dataType="i4"
+                      name="skill_fk_accuracy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_long_passing]"
+                      dataType="i4"
+                      name="skill_long_passing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[skill_ball_control]"
+                      dataType="i4"
+                      name="skill_ball_control" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_acceleration]"
+                      dataType="i4"
+                      name="movement_acceleration" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_sprint_speed]"
+                      dataType="i4"
+                      name="movement_sprint_speed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_agility]"
+                      dataType="i4"
+                      name="movement_agility" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_reaction]"
+                      dataType="i4"
+                      name="movement_reaction" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movement_balance]"
+                      dataType="i4"
+                      name="movement_balance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_shot]"
+                      dataType="i4"
+                      name="power_shot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_jumping]"
+                      dataType="i4"
+                      name="power_jumping" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_stamina]"
+                      dataType="i4"
+                      name="power_stamina" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_strength]"
+                      dataType="i4"
+                      name="power_strength" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[power_long_shot]"
+                      dataType="i4"
+                      name="power_long_shot" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_aggression]"
+                      dataType="i4"
+                      name="mentality_aggression" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_interception]"
+                      dataType="i4"
+                      name="mentality_interception" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_positioning]"
+                      dataType="i4"
+                      name="mentality_positioning" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_vision]"
+                      dataType="i4"
+                      name="mentality_vision" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_penalty]"
+                      dataType="i4"
+                      name="mentality_penalty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mentality_composure]"
+                      dataType="i4"
+                      name="mentality_composure" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[defensive_awareness]"
+                      dataType="i4"
+                      name="defensive_awareness" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[defensive_standing_tackle]"
+                      dataType="i4"
+                      name="defensive_standing_tackle" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[defensive_sliding_tackle]"
+                      dataType="i4"
+                      name="defensive_sliding_tackle" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_diving]"
+                      dataType="i4"
+                      name="goalkeeping_diving" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_handling]"
+                      dataType="i4"
+                      name="goalkeeping_handling" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_composure]"
+                      dataType="i4"
+                      name="goalkeeping_composure" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_kicking]"
+                      dataType="i4"
+                      name="goalkeeping_kicking" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[goalkeeping_positioning]"
+                      dataType="i4"
+                      name="goalkeeping_positioning" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[player_traits]"
+                      dataType="wstr"
+                      length="150"
+                      name="player_traits" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[player_hashtags]"
+                      dataType="wstr"
+                      length="100"
+                      name="player_hashtags" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sofifa_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sofifa_id]"
+                      name="sofifa_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[long_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[long_name]"
+                      name="long_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[short_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[short_name]"
+                      name="short_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[photo_url]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[photo_url]"
+                      name="photo_url" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[positions]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[positions]"
+                      name="positions" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dob]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dob]"
+                      name="dob" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[height_cm]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[height_cm]"
+                      name="height_cm" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weight_kg]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weight_kg]"
+                      name="weight_kg" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overall_rating]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overall_rating]"
+                      name="overall_rating" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[potential_rating]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[potential_rating]"
+                      name="potential_rating" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[value_euro]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[value_euro]"
+                      name="value_euro" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wage_euro]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wage_euro]"
+                      name="wage_euro" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[preferred_foot]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[preferred_foot]"
+                      name="preferred_foot" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weak_foot]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weak_foot]"
+                      name="weak_foot" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_moves]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_moves]"
+                      name="skill_moves" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[international_reputation]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[international_reputation]"
+                      name="international_reputation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[work_rate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[work_rate]"
+                      name="work_rate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[body_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[body_type]"
+                      name="body_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[real_face]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[real_face]"
+                      name="real_face" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[release_clause_euro]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[release_clause_euro]"
+                      name="release_clause_euro" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[club]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[club]"
+                      name="club" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[club_overall]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[club_overall]"
+                      name="club_overall" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[national]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[national]"
+                      name="national" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_crossing]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_crossing]"
+                      name="attack_crossing" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_finishing]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_finishing]"
+                      name="attack_finishing" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_heading_accuracy]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_heading_accuracy]"
+                      name="attack_heading_accuracy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_short_passing]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_short_passing]"
+                      name="attack_short_passing" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_volley]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attack_volley]"
+                      name="attack_volley" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_dribbling]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_dribbling]"
+                      name="skill_dribbling" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_curve]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_curve]"
+                      name="skill_curve" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_fk_accuracy]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_fk_accuracy]"
+                      name="skill_fk_accuracy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_long_passing]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_long_passing]"
+                      name="skill_long_passing" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_ball_control]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[skill_ball_control]"
+                      name="skill_ball_control" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_acceleration]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_acceleration]"
+                      name="movement_acceleration" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_sprint_speed]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_sprint_speed]"
+                      name="movement_sprint_speed" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_agility]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_agility]"
+                      name="movement_agility" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_reaction]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_reaction]"
+                      name="movement_reaction" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_balance]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movement_balance]"
+                      name="movement_balance" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_shot]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_shot]"
+                      name="power_shot" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_jumping]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_jumping]"
+                      name="power_jumping" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_stamina]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_stamina]"
+                      name="power_stamina" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_strength]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_strength]"
+                      name="power_strength" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_long_shot]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[power_long_shot]"
+                      name="power_long_shot" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_aggression]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_aggression]"
+                      name="mentality_aggression" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_interception]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_interception]"
+                      name="mentality_interception" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_positioning]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_positioning]"
+                      name="mentality_positioning" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_vision]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_vision]"
+                      name="mentality_vision" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_penalty]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_penalty]"
+                      name="mentality_penalty" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_composure]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mentality_composure]"
+                      name="mentality_composure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[defensive_awareness]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[defensive_awareness]"
+                      name="defensive_awareness" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[defensive_standing_tackle]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[defensive_standing_tackle]"
+                      name="defensive_standing_tackle" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[defensive_sliding_tackle]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[defensive_sliding_tackle]"
+                      name="defensive_sliding_tackle" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_diving]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_diving]"
+                      name="goalkeeping_diving" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_handling]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_handling]"
+                      name="goalkeeping_handling" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_composure]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_composure]"
+                      name="goalkeeping_composure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_kicking]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_kicking]"
+                      name="goalkeeping_kicking" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_positioning]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[goalkeeping_positioning]"
+                      name="goalkeeping_positioning" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[player_traits]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[player_traits]"
+                      name="player_traits" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[player_hashtags]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[player_hashtags]"
+                      name="player_hashtags" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [dob], [overall_rating], [sofifa_id] FROM [dbo].[SCD_Cleaned_database]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[QUOC\SQLEXPRESS.DEP305x_OriginalData.sqlUser]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[dob]"
+                      cachedDataType="dbDate"
+                      cachedName="dob"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[dob]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[dob]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[overall_rating]"
+                      cachedDataType="i4"
+                      cachedName="overall_rating"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[overall_rating]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overall_rating]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[sofifa_id]"
+                      cachedDataType="i4"
+                      cachedName="sofifa_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[sofifa_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[sofifa_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[dob]"
+                      dataType="dbDate"
+                      name="dob" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[overall_rating]"
+                      dataType="i4"
+                      name="overall_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[sofifa_id]"
+                      dataType="i4"
+                      name="sofifa_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Changing Attribute Updates Output]"
+              endId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[New Output]"
+              endId="Package\Data Flow Task\Insert Destination 1.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="227,153" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="435.5,19.4999999999999" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Data Flow Task\Slowly Changing Dimension"
+          TopLeft="405,124.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="513.5,61.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Data Flow Task\Insert Destination 1"
+          TopLeft="187,226.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[New Output]"
+          TopLeft="478.333333333333,166.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-204.333333333333,60"
+              Start="0,0"
+              End="-204.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.264705882353" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.264705882353"
+                    Point2="0,24.264705882353"
+                    Point3="-4,24.264705882353" />
+                  <mssgle:LineSegment
+                    End="-200.333333333333,24.264705882353" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-200.333333333333,24.264705882353"
+                    Point2="-204.333333333333,24.264705882353"
+                    Point3="-204.333333333333,28.264705882353" />
+                  <mssgle:LineSegment
+                    End="-204.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-129.258053385417,29.264705882353,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Data Flow Task\OLE DB Command 1"
+          TopLeft="422,226.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Changing Attribute Updates Output]"
+          TopLeft="547.666666666667,166.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.6666666666666,60"
+              Start="0,0"
+              End="-34.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.264705882353" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.264705882353"
+                    Point2="0,24.264705882353"
+                    Point3="-4,24.264705882353" />
+                  <mssgle:LineSegment
+                    End="-30.6666666666666,24.264705882353" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.6666666666666,24.264705882353"
+                    Point2="-34.6666666666666,24.264705882353"
+                    Point3="-34.6666666666666,28.264705882353" />
+                  <mssgle:LineSegment
+                    End="-34.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.8672395833333,29.264705882353,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{79CECAC1-2240-4FA8-B2CE-96DE6D426B2D}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[SCD_Cleaned_database]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[age]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;age&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_crossing]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attack_crossing&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_finishing]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attack_finishing&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_heading_accuracy]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attack_heading_accuracy&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_short_passing]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attack_short_passing&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[attack_volley]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;attack_volley&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[body_type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;body_type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[club]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;club&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[club_overall]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;club_overall&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_awareness]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;defensive_awareness&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_sliding_tackle]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;defensive_sliding_tackle&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[defensive_standing_tackle]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;defensive_standing_tackle&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[dob]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;dob&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_composure]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;goalkeeping_composure&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_diving]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;goalkeeping_diving&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_handling]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;goalkeeping_handling&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_kicking]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;goalkeeping_kicking&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[goalkeeping_positioning]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;goalkeeping_positioning&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[height_cm]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;height_cm&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[international_reputation]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;international_reputation&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[long_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;long_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_aggression]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;mentality_aggression&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_composure]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;mentality_composure&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_interception]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;mentality_interception&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_penalty]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;mentality_penalty&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_positioning]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;mentality_positioning&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[mentality_vision]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;mentality_vision&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_acceleration]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;movement_acceleration&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_agility]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;movement_agility&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_balance]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;movement_balance&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_reaction]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;movement_reaction&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[movement_sprint_speed]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;movement_sprint_speed&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[national]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;national&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[overall_rating]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;overall_rating&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[photo_url]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;photo_url&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[player_hashtags]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;player_hashtags&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[player_traits]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;player_traits&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[positions]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;positions&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[potential_rating]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;potential_rating&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[power_jumping]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;power_jumping&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[power_long_shot]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;power_long_shot&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[power_shot]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;power_shot&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[power_stamina]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;power_stamina&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[power_strength]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;power_strength&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[preferred_foot]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;preferred_foot&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[real_face]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;real_face&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[release_clause_euro]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;release_clause_euro&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[short_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;short_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_ball_control]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;skill_ball_control&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_curve]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;skill_curve&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_dribbling]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;skill_dribbling&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_fk_accuracy]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;skill_fk_accuracy&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_long_passing]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;skill_long_passing&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[skill_moves]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;skill_moves&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[sofifa_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;sofifa_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[value_euro]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;value_euro&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[wage_euro]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;wage_euro&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[weak_foot]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;weak_foot&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[weight_kg]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;weight_kg&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[work_rate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;work_rate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Insert Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
